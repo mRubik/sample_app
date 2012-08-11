@@ -2,8 +2,6 @@ require 'spec_helper'
 
 describe "Static pages" do
 
-  let(:base_title) { "Ruby on Rails Tutorial Sample App" }
-
   describe "Home page" do
 
     it "should have the h1 'Sample App'" do
@@ -13,7 +11,8 @@ describe "Static pages" do
 
     it "should have the title 'Home'" do
       visit '/static_pages/home'
-      page.should have_selector('title', :text => "#{base_title} | Home")
+      page.should have_selector('title',
+                        :text => "Ruby on Rails Tutorial Sample App | Home")
     end
   end
 
@@ -26,7 +25,8 @@ describe "Static pages" do
 
     it "should have the title 'Help'" do
       visit '/static_pages/help'
-      page.should have_selector('title', :text => "#{base_title} | Help")
+      page.should have_selector('title',
+                        :text => "Ruby on Rails Tutorial Sample App | Help")
     end
   end
 
@@ -39,28 +39,22 @@ describe "Static pages" do
 
     it "should have the title 'About Us'" do
       visit '/static_pages/about'
-      page.should have_selector('title', :text => "#{base_title} | About Us")
+      page.should have_selector('title',
+                    :text => "Ruby on Rails Tutorial Sample App | About Us")
     end
   end
 
-  describe "Contact page" do
+  describe "Releases page" do
 
-    it "should have the h1 'Contact'" do
-      visit '/static_pages/contact'
-      page.should have_selector('h1', :text => 'Contact')
+    it "should have the h1 'Releases'" do
+      visit '/static_pages/about'
+      page.should have_selector('h1', :text => 'Releases')
     end
-
-    it "should have the title 'Contact'" do
-      visit '/static_pages/contact'
-      page.should have_selector('title', :text => "#{base_title} | Contact")
+    
+    it "should have the title 'Releases'" do
+      visit '/static_pages/releases'
+      page.should have_selector('title',
+                    :text => "Ruby on Rails Tutorial Sample App | Releases")
     end
-
-    describe "Releases" do
-
-      it "should have the h1 'Releases'" do
-        visit 'static_pages/releases'
-        page.should have_selector('releases', :text => "#{base_title} | Releases")
-    end
-  end
-end
+  end                  
 end
