@@ -11,6 +11,4 @@ class StaticPagesController < ApplicationController
   def contact
   end	
 
-  def releases
-  end
 end
